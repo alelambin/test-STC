@@ -18,8 +18,8 @@ static struct device *device;
 
 /**
  * Module opening
- * \param inode -- file identificator
- * \param file -- file struct
+ * \param inode file identificator
+ * \param file file struct
  * \return file descriptor
  */
 static int module_open(struct inode *inode, struct file *file) {
@@ -34,8 +34,8 @@ static int module_open(struct inode *inode, struct file *file) {
 
 /**
  * Module releasing
- * \param inode -- file identificator
- * \param file -- file struct
+ * \param inode file identificator
+ * \param file file struct
  * \return file descriptor
  */
 static int module_release(struct inode *inode, struct file *file) {
@@ -51,10 +51,10 @@ static int module_release(struct inode *inode, struct file *file) {
 
 /**
  * Module reading
- * \param file -- file struct
- * \param buf -- user buffer
- * \param buf_size -- size of buffer
- * \param pos -- offset
+ * \param file file struct
+ * \param buf user buffer
+ * \param buf_size size of buffer
+ * \param pos offset
  * \return number of bytes read
  */
 static ssize_t module_read(struct file *file, char __user *buf, size_t buf_size, loff_t *pos) {
@@ -68,10 +68,10 @@ static ssize_t module_read(struct file *file, char __user *buf, size_t buf_size,
 
 /**
  * Module writing
- * \param file -- file struct
- * \param buf -- user buffer
- * \param buf_size -- size of buffer
- * \param pos -- offset
+ * \param file file struct
+ * \param buf user buffer
+ * \param buf_size size of buffer
+ * \param pos offset
  * \return number of bytes written
  */
 static ssize_t module_write(struct file *file, const char __user *buf, size_t buf_size, loff_t *pos) {
