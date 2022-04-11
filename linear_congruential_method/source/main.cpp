@@ -120,6 +120,8 @@ ushort getNext(std::vector<ushort> vec) {
         
         ushort mul = (vec[2] - vec[1] + module) % module;
         ushort div = gcd(mul, (vec[1] - vec[0] + module) % module);
+        if (div == 0)
+            continue;
         try {
             mul = (mul / div * inverse(((vec[1] - vec[0]) / div + module) % module, module));
         } catch (std::runtime_error &exception) {
