@@ -1,5 +1,12 @@
 #include "calculationstatus.h"
 
+/*!
+ * CalculationStatus class constructor
+ * \param num widget's number (0 - 9)
+ * \param xSize, ySize size of the matrix on which the calculations will be performed
+ * \param func performed function
+ * \param parent pointer on parent's widget
+ */
 CalculationStatus::CalculationStatus(int num, int xSize, int ySize, std::function<float (float)> func, QWidget *parent) :
     QWidget(parent), mathCalculation(new MathCalculation(xSize, ySize, func)) {
     label = new QLabel(QString::number(num) + ". ", this);
@@ -19,21 +26,32 @@ CalculationStatus::CalculationStatus(int num, int xSize, int ySize, std::functio
     mathThread.start();
 }
 
+/*!
+ * CalculationStatus class destructor
+ */
 CalculationStatus::~CalculationStatus() {
     mathThread.quit();
     mathThread.wait();
     delete mathCalculation;
 }
 
+/*!
+ * Slot that generates the calculate() signal
+ */
 void CalculationStatus::start() {
     emit calculate();
 }
 
-
+/*!
+ * Slot that changes the value of the progress bar
+ */
 void CalculationStatus::changeStatus(int percent) {
     progressBar->setValue(percent);
 }
 
+/*!
+ * Slot that generates the end() signal
+ */
 void CalculationStatus::endCalculate() {
     emit end();
 }

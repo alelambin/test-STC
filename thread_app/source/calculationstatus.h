@@ -8,6 +8,10 @@
 #include <QThread>
 #include "mathcalculation.h"
 
+/*!
+ * \class CalculationStatus
+ * The class that is a QProgressBar widget that displays the progress of calculations
+ */
 class CalculationStatus : public QWidget {
     Q_OBJECT
 

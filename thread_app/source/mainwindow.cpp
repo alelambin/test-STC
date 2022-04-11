@@ -1,5 +1,9 @@
 #include "mainwindow.h"
 
+/*!
+ * MainWindow class constructor
+ * \param parent pointer on parent's widget
+ */
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     std::mt19937 gen(time(nullptr));
     std::uniform_int_distribution<> rand(0, 300);
@@ -26,6 +30,10 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent) {
     }
 }
 
+/*!
+ * The slot that is called when a thread terminates.
+ * On completion of all threads, makes the button enable
+ */
 void MainWindow::endCalulations() {
     QCoreApplication::processEvents();
 
@@ -37,6 +45,10 @@ void MainWindow::endCalulations() {
     }
 }
 
+/*!
+ * The slot that is called when the button is clicked.
+ * Generates the started() signal. Makes the button disable
+ */
 void MainWindow::startCalulations() {
     startButton->setDisabled(true);
     emit started();

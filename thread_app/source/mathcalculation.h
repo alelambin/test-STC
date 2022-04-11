@@ -7,6 +7,10 @@
 #include <random>
 #include <ctime>
 
+/*!
+ * \class MathCalculation
+ * The class that performs mathematical operations on a matrix in a thread
+ */
 class MathCalculation : public QObject {
     Q_OBJECT
 
